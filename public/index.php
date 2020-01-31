@@ -1,24 +1,38 @@
 <?php
 
-// echo 'QUERYSTRING = "' . $_SERVER['QUERY_STRING'] . '" <br>';
-// echo 'Requested URL = "' . $_SERVER['REQUEST_URI'] . '"';
+/**
+ * Front controller
+ *
+ * PHP version 5.4
+ */
+
+/**
+ * Routing
+ */
 require '../Core/Router.php';
 
 $router = new Router();
 
-$router->add('/', ['controller' => 'Home', 'action' => 'index']);
-$router->add('/posts', ['controller' => 'Posts', 'action' => 'index']);
-$router->add('/posts/new', ['controller' => 'Posts', 'action' => 'new']);
+// Add the routes
+$router->add('', ['controller' => 'Home', 'action' => 'index']);
+$router->add('posts', ['controller' => 'Posts', 'action' => 'index']);
+$router->add('{controller}/{action}');
+$router->add('{controller}/{id:\d+}/{action}');
 
-$url = $_SERVER['REQUEST_URI'];
+// Display the routing table
+echo '<pre>';
+//var_dump($router->getRoutes());
+echo htmlspecialchars(print_r($router->getRoutes(), true));
+echo '</pre>';
+
+
+// Match the requested route
+$url = $_SERVER['QUERY_STRING'];
 
 if ($router->match($url)) {
-    echo "<pre>";
+    echo '<pre>';
     var_dump($router->getParams());
-    echo "</pre>";
+    echo '</pre>';
 } else {
-    echo "No route found for URL:{$url}";
+    echo "No route found for URL '$url'";
 }
-// echo "<pre>";
-// var_dump($router->getRoutes());
-// echo "</pre>";
