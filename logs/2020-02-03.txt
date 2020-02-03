@@ -1,0 +1,4 @@
+[03-Feb-2020 10:01:09 UTC] Uncaught exception: 'Exception' with message 'No route matched.'
+Stack trace: #0 D:\laragon\www\mvc\public\index.php(41): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in 'D:\laragon\www\mvc\Core\Router.php' on line 132

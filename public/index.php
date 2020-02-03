@@ -24,6 +24,8 @@ require '../vendor/autoload.php';
 //     }
 // });
 
+set_error_handler('Core\Error::errorHandler');
+set_exception_handler('Core\Error::exceptionHandler');
 
 /**
  * Routing
