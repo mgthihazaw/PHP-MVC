@@ -2,8 +2,14 @@
 
 namespace Core;
 
-class Controller
+/**
+ * Base controller
+ *
+ * PHP version 5.4
+ */
+abstract class Controller
 {
+
     /**
      * Parameters from the matched route
      * @var array
@@ -21,6 +27,7 @@ class Controller
     {
         $this->route_params = $route_params;
     }
+
     /**
      * Magic method called when a non-existent or inaccessible method is
      * called on an object of this class. Used to execute before and after
@@ -42,7 +49,6 @@ class Controller
                 $this->after();
             }
         } else {
-
             echo "Method $method not found in controller " . get_class($this);
         }
     }
@@ -54,8 +60,6 @@ class Controller
      */
     protected function before()
     {
-        // echo "Before <br>";
-        // return true;
     }
 
     /**
@@ -65,7 +69,5 @@ class Controller
      */
     protected function after()
     {
-        // echo "<br>After";
-        // return true;
     }
 }

@@ -1,12 +1,16 @@
-{% extends "base.html" %} {% block title %}Posts{% endblock %} {% block body %}
+{% extends "base.html" %}
 
-<h1>Welcome</h1>
-<p>Hello from a Twig template, {{ name }}!</p>
+{% block title %}Home{% endblock %}
 
-<ul>
-  {% for colour in colours %}
-  <li>{{ colour }}</li>
-  {% endfor %}
-</ul>
+{% block body %}
+
+    <h1>Welcome</h1>
+    <p>Hello from a Twig template, {{ name }}!</p>
+
+    <ul>
+        {% for colour in colours %}
+            <li>{{ colour }}</li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}

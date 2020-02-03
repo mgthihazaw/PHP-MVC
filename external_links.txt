@@ -1,0 +1,2 @@
+- b'Composer-How-to-Specify-Package-Versions'
+- b'https://getcomposer.org/doc/articles/versions.md'
